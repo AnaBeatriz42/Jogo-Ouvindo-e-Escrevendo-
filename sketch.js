@@ -17,7 +17,8 @@ let button;
 let audInicio;
 let audBanana;
 var opcao;
-
+var frutas = []
+var cont = 35
 
 //inserindo uma imagem  
 let img;
@@ -44,6 +45,7 @@ function preload() {
 function setup(){
     createCanvas(400,400);//definido o tamanho da nossa tela
     frameRate(30);
+    frutas = [banana,maça,laranja,melancia]
 }
 function voltar() {
     tela = 1;
@@ -54,6 +56,7 @@ function voltar() {
     escolha = 0;
     opcao = 0;
 }
+
 
 // Telas principais do jogo 
   function tela1(){
@@ -278,10 +281,6 @@ if(mouseX > 100&& mouseX < 100 +l && mouseY> 172&& mouseY< 172+ h){
   noStroke();//remover o contorno que é usado para desenhar linhas e bordas em torno de formas.
   text("Play",150,230);// inserindo o texto de inicio de jogo
     
-//inserindo um botão para voltar ao menu principal 
-    button = createButton('voltar');
-    button.position(230, 270);
-    button.mousePressed(voltar); 
   }
 
 //Criando a tela de parabéns
@@ -388,34 +387,35 @@ function telaNivelPlay1(){
     if(mouseIsPressed ){
         escolha = 1 
     }
-    rect(35,200,55,60,15)
+   
 }
   
   if(mouseX > 120 && mouseX < 120+55 && mouseY> 180&& mouseY< 240){ 
     if(mouseIsPressed ){
         escolha = 2 
     }
-    rect(120,200,55,60,15)
+ 
 }
   
   if(mouseX > 190 && mouseX < 190+55 && mouseY> 180&& mouseY< 240){ 
     if(mouseIsPressed ){
         escolha = 3 
     }
-    rect(190,200,55,60,15)
+    
 }
   
   if(mouseX > 260 && mouseX < 260+55 && mouseY> 180&& mouseY< 240){ 
     if(mouseIsPressed ){
         escolha = 4 
     }
-    rect( 260,200,55,60,15)
+   
 }
-  
-  image(banana,35,180,50,100)
-  image(maça,120,180,35,100)
-  image(laranja,190,180,35,100)
-  image(melancia,260,180,35,100)
+
+  for(i=0;i<=3;i++){
+ image(frutas[i],cont,200,55,60)
+    cont = cont +70
+  }
+  cont =35
   
   textAlign(RIGHT);
   textSize(20);
